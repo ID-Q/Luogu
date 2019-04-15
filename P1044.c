@@ -8,18 +8,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int func(int n, int x) {
-    if (n == 0 || n == 1) return 1;
-    if (n > 1) return (func(n - 1) * func(n - x));
-    return 0;
+int func(int n) {
+    int f[30] = {0};
+    f[0] = f[1] = 1;
+    for(int i = 2; i <= n; i++) {
+        for (int j = 0; j < i; j++) {
+            f[i] += f[j] * f[i - j - 1];
+        }
+    }
+    return f[n];
 }
 
 int main() {
     int n, num = 0;
     scanf("%d", &n);
-    for (int i = 0, i <= n; i++) {
-        num = func(n, i);
-    }
+    num = func(n);
     printf("%d\n", num);
     return 0;
 }
