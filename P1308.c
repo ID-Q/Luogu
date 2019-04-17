@@ -22,26 +22,26 @@ int res(char *arr) {
 }
 
 int main() {
-    char word[1000001], *q, cmp[11], *p;
-    int flag = 0;
-    int ans = 0, ans1 = -1;
-    gets(cmp);
-    gets(word);
+    char word[1000001] = {0}, *q, cmp[11] = {0}, *p;
+    int flag = 0, ans = 0, ans1 = -1;
+    scanf("%[^\n]s", cmp);
+    getchar();
+    scanf("%[^\n]s", word);
+    getchar();
     res(cmp);
     res(word);
     int len = strlen(cmp);
-    p = word; 
-    while((strcmp(p,cmp)) != 0) {
-        p += len;
-        if (strcmp(p, cmp) == 0 && (q == cmp || *(q - 1) == ' ') && (*(q + len) == '\0' || *(q + len) == ' ')) {
-        ans++;
-        if (flag == 0) {
-            flag = 1;
-            ans1 = q - cmp;
+    p = word;
+    for(; (q = strstr(p, cmp)); ) {
+        if (q != NULL && ( q == word || *(q - 1) == ' ') && ( *(q + len) == '\0' || *(q + len) == ' ' )) {
+            ans += 1;
+            if (flag == 0) {
+                flag = 1;
+                ans1 = q - word;
+            }
         }
+        p = q + len;
     }
-    }
-    
     if (flag == 1) {
         printf("%d %d\n", ans, ans1);
     } else {
