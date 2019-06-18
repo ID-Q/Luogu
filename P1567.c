@@ -1,5 +1,5 @@
 /*************************************************************************
-	> File Name: tongjitianshu.c
+	> File Name: P1567.c
 	> Author: zhengdongqi
 	> Mail: 
 	> Created Time: 二  3/ 5 15:02:12 2019
