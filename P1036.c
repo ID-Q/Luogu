@@ -11,6 +11,7 @@
 
 int x[20], n, k;
 
+
 bool is_prime(int n) {
     int s = sqrt((double)n);
     for (int i = 2; i <= s; i++) {
